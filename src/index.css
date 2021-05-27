@@ -115,3 +115,24 @@ footer{
 .button.primary{
   background-color: #ffc000;
 }
+
+
+
+
+/* filteer */
+
+.filter{
+  display:flex
+;
+  padding:1rem;
+  margin: 1rem;
+  border-bottom: 1px solid #eee;
+  justify-content:space-between
+}
+.filter div{
+  flex:1
+}
+
+
+
+
