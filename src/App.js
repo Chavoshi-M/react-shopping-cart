@@ -1,4 +1,5 @@
  import { Component } from 'react';
+import Cart from './components/Cart';
 import Filter from './components/Filter';
 import Products from './components/Products';
 import data from './data.json'
@@ -7,10 +8,32 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
+      cartItems:[],
       products:data.products,
       size:"",
       sort:""
     }
+  }
+  addToCart=(product)=>{
+    const cartItems = this.state.cartItems.slice();
+    let alreadyInCart = false;
+    cartItems.forEach(itm=>{
+      if(itm._id === product._id){
+        itm.count++;
+        alreadyInCart = true;
+      }
+    })
+    if (!alreadyInCart) {
+      cartItems.push({...product,count:1})
+    }
+    this.setState({
+      cartItems
+    })
+  }
+  removeFromCart=(product)=>{
+    const cartItems = this.state.cartItems.slice();
+    this.setState({cartItems:cartItems.filter(itm=>itm._id !== product._id)});
+
   }
   sortProducts = e => {
     console.log(e.target.value);
@@ -59,10 +82,10 @@ class App extends Component {
                 sortProducts={this.sortProducts}
                 count={this.state.products.length}
               />
-              <Products products={this.state.products}/>
+              <Products addToCart={this.addToCart} products={this.state.products}/>
             </div>
             <div className="sidebar">
-              cart items
+              <Cart removeFromCart={this.removeFromCart} cartItems={this.state.cartItems}/>
             </div>
           </div>
         </main>

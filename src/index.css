@@ -106,7 +106,7 @@ footer{
 .product-price div{
   font-size: 2rem;
 }
-.product-price .button{
+.button{
   padding:1rem;
   border:0.1rem solid #c0c0c0;
   background-color: #f0f0f0;
@@ -135,4 +135,44 @@ footer{
 
 
 
+/* Cart */
+.cart{
+  display: flex;
+  flex-wrap: wrap;
+  margin:1rem;
+  padding:1rem;
+}
+.cart-header{
+  border-bottom: 1px solid #eee;
+}
+.cart-items{
+  padding: 0;
+  width:100%;
+  list-style: none;}
+.cart-items img{
+  width: 5rem;
+}
+.cart-items li{
+  display:flex
+}
+
+.cart-items li div{
+  padding: .5rem;
+}
+.cart-items li div:last-child{
+  flex:1
+}
+.right{
+  text-align: right;
+}
+
+.total{
+  display:flex;
+  justify-content:space-between;
+  width: 100%;
+  align-items: center;
+}
+.total>div{
+  flex:1
+}
 
