@@ -1,9 +1,11 @@
  import { Component } from 'react';
+import { Provider } from 'react-redux';
 import Cart from './components/Cart';
 import Filter from './components/Filter';
 import Products from './components/Products';
 import data from './data.json'
-//feature-1
+import store from './store';
+
 class App extends Component {
   constructor(){
     super();
@@ -73,6 +75,7 @@ class App extends Component {
   }
   render() {
     return (
+      <Provider store={store}>
       <div className="container"> 
         <header>
           <a href="/home">home</a>
@@ -98,6 +101,7 @@ class App extends Component {
           All right is Reserved
         </footer>
       </div>
+      </Provider>
     );
   }
 }
