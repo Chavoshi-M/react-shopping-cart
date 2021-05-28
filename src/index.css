@@ -194,3 +194,26 @@ input{
   padding: 1rem;
   border: 1px solid #eee;
 }
+
+/* Modal */
+.product-detail{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  max-height: 96vh;
+}
+.product-detail img{
+  max-width: 46rem;
+  max-height: 100vh;
+  margin: 0 auto;
+}
+.product-detail-desc{
+  flex:1 1 ;
+  margin:1rem ;
+}
+.close-modal{
+  position: absolute;
+  z-index: 10000;
+  right: 10px;
+  top: 10px;
+}
