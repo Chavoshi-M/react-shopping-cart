@@ -1,6 +1,5 @@
 {
-  "name": "cart",
-  "proxy":"http://localhost:27017",
+  "name": "cart", 
   "version": "0.1.0",
   "private": true,
   "dependencies": {
