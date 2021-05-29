@@ -42,4 +42,4 @@ export const orderProducts = (filteredProducts,sort)=>(dispatch)=>{
             items:sortedProducts
         }
     });
-}
+} 

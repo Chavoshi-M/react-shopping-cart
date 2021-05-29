@@ -5,40 +5,7 @@ import Filter from './components/Filter';
 import Products from './components/Products'; 
 import store from './store';
 
-class App extends Component {
-  constructor(){
-    super();
-    this.state = {
-      cartItems:localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')):[] 
-    }
-  }
-  addToCart=(product)=>{
-    const cartItems = this.state.cartItems.slice();
-    let alreadyInCart = false;
-    cartItems.forEach(itm=>{
-      if(itm._id === product._id){
-        itm.count++;
-        alreadyInCart = true;
-      }
-    })
-    if (!alreadyInCart) {
-      cartItems.push({...product,count:1})
-    }
-    this.setState({
-      cartItems
-    })
-    localStorage.setItem('cartItems',JSON.stringify(cartItems))
-  }
-  removeFromCart=(product)=>{
-    const cartItems = this.state.cartItems.slice();
-    const updatedItems = cartItems.filter(itm=>itm._id !== product._id)
-    this.setState({cartItems:updatedItems});
-    localStorage.setItem('cartItems',JSON.stringify(updatedItems));
-  }
- 
-  createOrder = (data)=>{
-    console.log(data);
-  }
+class App extends Component { 
   render() {
     return (
       <Provider store={store}>
@@ -50,10 +17,10 @@ class App extends Component {
           <div className="content">
             <div className="main">
               <Filter/>
-              <Products addToCart={this.addToCart}  />
+              <Products />
             </div>
             <div className="sidebar">
-              <Cart createOrder={this.createOrder} removeFromCart={this.removeFromCart} cartItems={this.state.cartItems}/>
+              <Cart />
             </div>
           </div>
         </main>
